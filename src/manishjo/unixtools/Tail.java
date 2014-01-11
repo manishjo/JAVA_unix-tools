@@ -16,29 +16,18 @@ class showTail {
 }
 public class Tail {
     public static void main(String[] args) {
-        String data = "";
+        String data = null;
         int times = 10;
-        try {
-            String sCurrentLine;
-            if(args.length == 1){
-                BufferedReader br = new BufferedReader(new FileReader(args[0]));
-                while ((sCurrentLine = br.readLine()) != null)
-                    data = data+"\n"+sCurrentLine;
-            }
+        String sCurrentLine;
+        fileOperations fs = new fileOperations();
+            if(args.length == 1)
+                data = fs.readFile(args[0]);
             else{
-
                 times = Integer.parseInt(args[0]);
-                BufferedReader br = new BufferedReader(new FileReader(args[1]));
-                while ((sCurrentLine = br.readLine()) != null)
-                    data = data+"\n"+sCurrentLine;
-
+                data = fs.readFile(args[1]);
             }
-            showTail show_tail = new showTail();
-            data = show_tail.printTail(data, times);
-            System.out.println(data);
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
+        showTail show_tail = new showTail();
+        data = show_tail.printTail(data, times);
+        System.out.println(data);
     }
 }
