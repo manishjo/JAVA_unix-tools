@@ -26,19 +26,13 @@ class writeFile{
 
 public class reduceSpace {
         public static void main(String[] args) {
-            String data = "";
-            try {
+            String data = null;
                 String sCurrentLine;
-                    BufferedReader br = new BufferedReader(new FileReader(args[0]));
-                    while ((sCurrentLine = br.readLine()) != null)
-                        data = data+"\n"+sCurrentLine;
+                fileOperations fs = new fileOperations();
+                data = fs.readFile(args[0]);
                 removeSpace removeSpace = new removeSpace();
                 data = removeSpace.remove_extra_space(data);
                 writeFile fileWriter = new writeFile();
                 fileWriter.write_in_File(args[0],data);
-            }
-            catch (Exception e) {
-                System.out.println("file not found");
-            }
         }
 }

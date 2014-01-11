@@ -15,27 +15,18 @@ class showHead{
 }
 public class Head {
      public static void main(String[] args) {
-          String data = "";
+          String data = null;
           int times = 10;
-          try {
                 String sCurrentLine;
-                if(args.length == 1){
-                    BufferedReader br = new BufferedReader(new FileReader(args[0]));
-                    while ((sCurrentLine = br.readLine()) != null)
-                        data = data+"\n"+sCurrentLine;
-                }
+                fileOperations fs = new fileOperations();
+                if(args.length == 1)
+                  data = fs.readFile(args[0]);
                 else{
                     times = Integer.parseInt(args[0])+1;
-                    BufferedReader br = new BufferedReader(new FileReader(args[1]));
-                    while ((sCurrentLine = br.readLine()) != null)
-                        data = data+"\n"+sCurrentLine;
+                    data = fs.readFile(args[1]);
                 }
                 showHead show_head = new showHead();
                 data = show_head.printHead(data,times);
                 System.out.println(data);
-            }
-          catch (Exception e) {
-                System.out.println("file not found");
-            }
-        }
-    }
+          }
+}
