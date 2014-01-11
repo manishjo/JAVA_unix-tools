@@ -35,7 +35,7 @@ public class Uniq {
         }
         removeRedundantLines results = new removeRedundantLines();
         data = results.removeCommonLines(data);
-        writeFile fileWriter = new writeFile();
-        fileWriter.write_in_File(args[0],data);
+        fileOperations fileWriter = new fileOperations();
+        fileWriter.writeFile(args[0],data);
     }
 }
