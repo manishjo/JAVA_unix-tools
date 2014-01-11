@@ -1,28 +1,41 @@
 package manishjo.unixtools;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
+
+class removeSpace{
+        public String remove_extra_space(String data){
+            return data.replaceAll("\\ +"," ");
+        }
+    }
+
+class writeFile{
+    public void write_in_File(String fileName,String content){
+        try {
+            PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+            String[]  temp = content.split("\n");
+            for(String line : temp)
+                writer.println(line);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 public class reduceSpace {
         public static void main(String[] args) {
             String data = "";
-            int times = 10;
             try {
                 String sCurrentLine;
-                if(args.length == 1){
                     BufferedReader br = new BufferedReader(new FileReader(args[0]));
                     while ((sCurrentLine = br.readLine()) != null)
                         data = data+"\n"+sCurrentLine;
-                }
-                else{
-                    times = Integer.parseInt(args[0])+1;
-                    BufferedReader br = new BufferedReader(new FileReader(args[1]));
-                    while ((sCurrentLine = br.readLine()) != null)
-                        data = data+"\n"+sCurrentLine;
-                }
-                showHead show_head = new showHead();
-                data = show_head.printHead(data,times);
-                System.out.println(data);
+                removeSpace removeSpace = new removeSpace();
+                data = removeSpace.remove_extra_space(data);
+                writeFile fileWriter = new writeFile();
+                fileWriter.write_in_File(args[0],data);
             }
             catch (Exception e) {
                 System.out.println("file not found");
