@@ -1,6 +1,7 @@
-package manishjo.unixtools;
+package manishjo.unixtools.WC;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import manishjo.unixtools.fileOprations.*;
 
 public class WC{ 
 	public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class WC{
         if(args.length == 0){
             System.out.println("filename is not given");
             return;}
-        fileOperations fs = new fileOperations();
+        fs fs = new fs();
         msg = fs.readFile(args[0]);
         int worlds = msg.split(" ").length;
         int lines = msg.split("\n").length-1;

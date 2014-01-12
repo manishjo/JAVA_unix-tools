@@ -1,12 +1,12 @@
 package manishjo.unixtools;
-
+import manishjo.unixtools.fileOprations.fs;
 import java.util.Arrays;
 
 /**
  * Created by manishjo on 1/11/14.
  */
 
-public class Sort {
+class SortData {
     public String showSortedData(String data){
         String lines[] = data.split("\n");
         String sortedData = null;
@@ -16,5 +16,18 @@ public class Sort {
         return sortedData;
     }
 }
+
+public class Sort {
+    public static void main(String[] args) {
+        String data = null;
+        int times = 10;
+        fs fs = new fs();
+        SortData show_head = new SortData();
+        data = show_head.showSortedData(data);
+        System.out.println(data);
+    }
+}
+
+
 
 

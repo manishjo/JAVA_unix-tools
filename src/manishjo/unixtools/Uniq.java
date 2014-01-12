@@ -1,4 +1,5 @@
-package manishjo.unixtools;
+package manishjo.unixtools.Uniq;
+import manishjo.unixtools.fileOprations.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Uniq {
         String data = null;
         int times = 10;
         String sCurrentLine;
-        fileOperations fs = new fileOperations();
+        fs fs = new fs();
         if(args.length == 1)
             data = fs.readFile(args[0]);
         else{
@@ -35,7 +36,7 @@ public class Uniq {
         }
         removeRedundantLines results = new removeRedundantLines();
         data = results.removeCommonLines(data);
-        fileOperations fileWriter = new fileOperations();
+        fs fileWriter = new fs();
         fileWriter.writeFile(args[0],data);
     }
 }

@@ -1,4 +1,5 @@
-package manishjo.unixtools;
+package manishjo.unixtools.reduceSpace;
+import manishjo.unixtools.fileOprations.*;
 
 import java.io.*;
 
@@ -12,11 +13,11 @@ public class reduceSpace {
         public static void main(String[] args) {
             String data = null;
                 String sCurrentLine;
-                fileOperations fs = new fileOperations();
+                fs fs = new fs();
                 data = fs.readFile(args[0]);
                 removeSpace removeSpace = new removeSpace();
                 data = removeSpace.remove_extra_space(data);
-                fileOperations fileWriter = new fileOperations();
+                fs fileWriter = new fs();
                 fileWriter.writeFile(args[0],data);
         }
 }

@@ -1,4 +1,5 @@
-package manishjo.unixtools;
+package manishjo.unixtools.Tail;
+import manishjo.unixtools.fileOprations.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,7 +20,7 @@ public class Tail {
         String data = null;
         int times = 10;
         String sCurrentLine;
-        fileOperations fs = new fileOperations();
+        fs fs = new fs();
             if(args.length == 1)
                 data = fs.readFile(args[0]);
             else{
