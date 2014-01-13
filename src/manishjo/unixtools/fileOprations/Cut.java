@@ -10,6 +10,7 @@ public class Cut {
         String [] lines= data.split("\n");
         for(String s :lines){
             try{
+
                 System.out.println(s.split(delimiter)[field]);
             }
             catch (ArrayIndexOutOfBoundsException ex){
@@ -31,7 +32,7 @@ public static void main(String[] args) throws Exception {
         }
         if(args.length == 2){
             int field = Integer.parseInt(args[1].substring(2, args[1].length()));
-            String delimiter = "";
+            String delimiter = " ";
             cut.cutByField(fileData,field,delimiter);
         }
     }
